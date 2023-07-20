@@ -1,43 +1,53 @@
 import java.util.*;
 
 public class ll {
+    Node head;
+
+    static class Node {
+        int data;
+        Node next;
+
+        Node(int data) {
+            this.data = data;
+            this.next = null;
+        }
+    }
+
+    public static ll insert(ll list, int data) {
+        Node curr = new Node(data);
+
+        if (list.head == null) {
+            list.head = curr;
+        } else {
+            Node last = list.head;
+            while (last.next != null) {
+                last = last.next;
+            }
+            last.next = curr;
+        }
+
+        return list;
+    }
+    
+    public static void printll(ll list) {
+        Node curr = list.head;
+        while (curr != null) {
+            System.out.println(curr.data);
+            curr = curr.next;
+        }
+        System.out.println("--------");
+    }
+    
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
+        ll list = new ll();
 
-        // initialise linked list
-        LinkedList<Integer> ll = new LinkedList<>();
+        list = insert(list, 2);
+        list = insert(list, 3);
+        list = insert(list, 4);
+        list = insert(list, 5);
+        list = insert(list, 6);
+        list = insert(list, 7);
 
-        // get input for the linked list
-        System.out.println("Enter no of elements to be inserted: ");
-        int n = sc.nextInt();
-        for (int i = 0; i < n; i++) {
-            ll.add(sc.nextInt());
-        }
-
-        System.out.println(ll);
-
-        // to check the element present in the list
-        System.out.println("Enter element to be searched: ");
-        int search = sc.nextInt();
-        System.out.println(ll.contains(search));
-
-        // to retrive the index of the element
-        System.out.println("The index of the searched element is: " + ll.indexOf(search));
-
-        // to delete the element present in the list
-        System.out.println("Enter element index to be deleted: ");
-        int delete = sc.nextInt();
-        System.out.println(ll.remove(delete));
-
-        System.out.println(ll);
-
-        // creating a list itereator
-        ListIterator liter = ll.listIterator();
-        System.out.println("List Iterator");
-
-        while (liter.hasNext()) {
-            System.out.println(liter.next());
-        }
-
+        printll(list);
     }
 }
