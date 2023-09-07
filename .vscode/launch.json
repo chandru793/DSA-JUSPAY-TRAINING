@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "revString",
+            "request": "launch",
+            "mainClass": "revString",
+            "projectName": "DSA_e25cf27b"
+        },
+        {
+            "type": "java",
             "name": "Current File",
             "request": "launch",
             "mainClass": "${file}"
